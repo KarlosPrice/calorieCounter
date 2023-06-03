@@ -1,4 +1,4 @@
-import {inputsGroupChangeHandler, buttonCalculateClickHandler, inputGroupForResetChangeHandler, resetButtonClickHandler} from "./handlers.js";
+import {inputsGroupChangeHandler, buttonCalculateClickHandler, inputGroupForResetChangeHandler, resetButtonClickHandler} from "./handler.js";
 
 const buttonCalculateElement = document.querySelector(".form__submit-button");
 const resetButtonElement = document.querySelector(".form__reset-button");

@@ -93,11 +93,11 @@ const getMaintainWeight = () => {
 }
 
 const getLossWeight = () => {
-    return Math.round(getEnergyMaintainWeight() - getEnergyMaintainWeight() * LOSS_WEIGHT_NORM);
+    return Math.round(getMaintainWeight() - getMaintainWeight() * LOSS_WEIGHT_NORM);
 }
 
 const getGainWeight = () => {
-    return Math.round(getEnergyMaintainWeight() + getEnergyMaintainWeight() * GAIN_WEIGHT_NORM);
+    return Math.round(getMaintainWeight() + getMaintainWeight() * GAIN_WEIGHT_NORM);
 }
 
 export {getMaintainWeight, getLossWeight, getGainWeight, isFilledParameters, isExistParameter, clearParameters, isValidateParameters, showError}
