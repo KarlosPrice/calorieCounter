@@ -1,5 +1,5 @@
-const LOSS_WEIGHT_RATE = 0.15;
-const GAIN_WEIGHT_RATE = 0.15;
+const LOSS_WEIGHT_NORM = 0.15;
+const GAIN_WEIGHT_NORM = 0.15;
 const ActivityRate = {
     "min": 1.2,
     "low": 1.375,
@@ -88,16 +88,16 @@ const getActivityRate = () => {
     return ActivityRate[activityValue];
 }
 
-const getEnergyMaintainWeight = () => {
+const getMaintainWeight = () => {
     return Math.round(getActivityRate() * getNorm());
 }
 
-const getEnergyLossWeight = () => {
-    return Math.round(getEnergyMaintainWeight() - getEnergyMaintainWeight() * LOSS_WEIGHT_RATE);
+const getLossWeight = () => {
+    return Math.round(getEnergyMaintainWeight() - getEnergyMaintainWeight() * LOSS_WEIGHT_NORM);
 }
 
-const getEnergyGainWeight = () => {
-    return Math.round(getEnergyMaintainWeight() + getEnergyMaintainWeight() * GAIN_WEIGHT_RATE);
+const getGainWeight = () => {
+    return Math.round(getEnergyMaintainWeight() + getEnergyMaintainWeight() * GAIN_WEIGHT_NORM);
 }
 
-export {getEnergyMaintainWeight, getEnergyLossWeight, getEnergyGainWeight, isFilledParameters, isExistParameter, clearParameters, isValidateParameters, showError}
+export {getMaintainWeight, getLossWeight, getGainWeight, isFilledParameters, isExistParameter, clearParameters, isValidateParameters, showError}
