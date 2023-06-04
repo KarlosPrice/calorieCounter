@@ -9,71 +9,71 @@ const ActivityRate = {
 };
 const ValidParameter = {
     AGE_MIN: 0,
-    AGE_MAX: 130,
-    HEIGHT_MIN: 60,
-    HEIGHT_MAX: 250,
+    AGE_MAX: 120,
+    HEIGHT_MIN: 45,
+    HEIGHT_MAX: 220,
     WEIGHT_MIN: 2,
-    WEIGHT_MAX: 500
+    WEIGHT_MAX: 300
 }
 
 const ERROR_SHOW_TIME = 3000;
 
 const showError = (message) => {
-    const alertContainer = document.createElement('div');
-    alertContainer.style.zIndex = '100';
-    alertContainer.style.position = 'absolute';
-    alertContainer.style.left = '0';
-    alertContainer.style.top = '0';
-    alertContainer.style.right = '0';
-    alertContainer.style.padding = '0';
-    alertContainer.style.fontSize = '40px';
-    alertContainer.style.textAlign = 'center';
-    alertContainer.style.backgroundColor = 'orange';
-    alertContainer.style.height = '130px';
-    alertContainer.style.lineHeight = 'normal';
-    alertContainer.style.borderWidth = '5px';
-    alertContainer.style.borderStyle = 'solid';
-    alertContainer.style.borderColor = 'red';
-    alertContainer.style.borderRadius = '20px';
-    alertContainer.textContent = message;
-    document.body.append(alertContainer);
+    const errorContainer = document.createElement('div');
+    errorContainer.style.zIndex = '100';
+    errorContainer.style.position = 'absolute';
+    errorContainer.style.left = '50px';
+    errorContainer.style.top = '385px';
+    errorContainer.style.right = '50px';
+    errorContainer.style.padding = '35px';
+    errorContainer.style.fontSize = '40px';
+    errorContainer.style.textAlign = 'center';
+    errorContainer.style.backgroundColor = 'orange';
+    errorContainer.style.height = 'auto';
+    errorContainer.style.lineHeight = 'normal';
+    errorContainer.style.borderWidth = '3px';
+    errorContainer.style.borderStyle = 'solid';
+    errorContainer.style.borderColor = 'red';
+    errorContainer.style.borderRadius = '20px';
+    errorContainer.textContent = message;
+    document.body.append(errorContainer);
     setTimeout(() => {
-        alertContainer.remove();
+        errorContainer.remove();
     }, ERROR_SHOW_TIME);
 };
 
-const age = document.querySelector("#age");
-const height = document.querySelector("#height");
-const weight = document.querySelector("#weight");
+const agePerson = document.querySelector("#age");
+const heightPerson = document.querySelector("#height");
+const weightPerson = document.querySelector("#weight");
 const genderMale = document.querySelector("#gender-male");
 const activityMinimal = document.querySelector("#activity-minimal");
 
 const clearParameters = () => {
-    age.value = "";
-    height.value = "";
-    weight.value = "";
+    agePerson.value = "";
+    heightPerson.value = "";
+    weightPerson.value = "";
     genderMale.checked = true;
     activityMinimal.checked = true;
 }
 
 const isValidateParameters = () => {
-    return age.value > ValidParameter.AGE_MIN && age.value < ValidParameter.AGE_MAX && height.value > ValidParameter.HEIGHT_MIN && height.value < ValidParameter.HEIGHT_MAX && weight.value > ValidParameter.WEIGHT_MIN && weight.value < ValidParameter.WEIGHT_MAX
+    return agePerson.value > ValidParameter.AGE_MIN && agePerson.value < ValidParameter.AGE_MAX && heightPerson.value > ValidParameter.HEIGHT_MIN && heightPerson.value < ValidParameter.HEIGHT_MAX && weightPerson.value > ValidParameter.WEIGHT_MIN && weightPerson.value < ValidParameter.WEIGHT_MAX
 }
 
 const isFilledParameters = () => {
-    return age.value && height.value && weight.value;
+    return agePerson.value && heightPerson.value && weightPerson.value;
 }
 
 const isExistParameter = () => {
-    return age.value || height.value || weight.value;
+    return agePerson.value || heightPerson.value || weightPerson.value;
 }
 
 const getNormMale = () => {
-    return (10 * parseInt(weight.value, 10) + (6.25 * parseInt(height.value, 10)) - (5 * parseInt(age.value, 10)) + 5);
+    return (10 * parseInt(weightPerson.value, 10) + (6.25 * parseInt(heightPerson.value, 10)) - (5 * parseInt(agePerson.value, 10)) + 5);
 }
 
 const getNormFemale = () => {
-    return (10 * parseInt(weight.value, 10) + (6.25 * parseInt(height.value, 10)) - (5 * parseInt(age.value, 10)) - 161);
+    return (10 * parseInt(weightPerson.value, 10) + (6.25 * parseInt(heightPerson.value, 10)) - (5 * parseInt(agePerson.value, 10)) - 161);
 }
 const getNorm = () => {
     const genderMale = document.querySelector("#gender-male");
@@ -100,4 +100,4 @@ const getGainWeight = () => {
     return Math.round(getMaintainWeight() + getMaintainWeight() * GAIN_WEIGHT_NORM);
 }
 
-export {getMaintainWeight, getLossWeight, getGainWeight, isFilledParameters, isExistParameter, clearParameters, isValidateParameters, showError}
+export { getMaintainWeight, getLossWeight, getGainWeight, isFilledParameters, isExistParameter, clearParameters, isValidateParameters, showError }

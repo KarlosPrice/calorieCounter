@@ -11,6 +11,7 @@ import {
 
 
 const MESSAGE_ERROR_FIELD = "не удалось рассчитать";
+
 const buttonCalculateElement = document.querySelector(".form__submit-button");
 const counterResultFormElement = document.querySelector(".counter__result");
 const fieldEnergyNormElement = counterResultFormElement.querySelector("#calories-norm");
