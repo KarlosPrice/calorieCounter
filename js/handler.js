@@ -19,7 +19,7 @@ const fieldEnergyMinimalElement = counterResultFormElement.querySelector("#calor
 const fieldEnergyMaximalElement = counterResultFormElement.querySelector("#calories-maximal");
 const resetButtonElement = document.querySelector(".form__reset-button");
 
-const inputsGroupChangeHandler = function (evt) {
+const inputsChangeHandler = function (evt) {
     if (evt.target.nodeName === "INPUT" && isFilledParameters()) {
         buttonCalculateElement.disabled = false;
     }
@@ -40,7 +40,7 @@ const buttonCalculateClickHandler = function (evt) {
     counterResultFormElement.classList.remove("counter__result--hidden");
 }
 
-const inputGroupForResetChangeHandler = function (evt) {
+const inputForResetChangeHandler = function (evt) {
     if (evt.target.nodeName === "INPUT" && isExistParameter()) {
         resetButtonElement.disabled = false;
     }
@@ -53,4 +53,4 @@ const resetButtonClickHandler = function () {
     clearParameters();
 }
 
-export { inputsGroupChangeHandler, buttonCalculateClickHandler, inputGroupForResetChangeHandler, resetButtonClickHandler };
+export { inputsChangeHandler, buttonCalculateClickHandler, inputForResetChangeHandler, resetButtonClickHandler };
