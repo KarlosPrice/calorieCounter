@@ -16,7 +16,7 @@ const ValidParameter = {
     WEIGHT_MAX: 300
 }
 
-const ERROR_SHOW_TIME = 3000;
+const ERROR_SHOW_TIME = 4000;
 
 const showError = (message) => {
     const errorContainer = document.createElement('div');
