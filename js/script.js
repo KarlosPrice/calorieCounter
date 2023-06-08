@@ -1,10 +1,23 @@
-import { inputsChangeHandler, buttonCalculateClickHandler, inputForResetChangeHandler, resetButtonClickHandler } from "./handler.js";
+import { buttonCalculateClickHandler, resetButtonClickHandler } from "./handler.js";
+import { isFilledParameters, isExistParameter } from "./util.js";
 
 const buttonCalculateElement = document.querySelector(".form__submit-button");
 const resetButtonElement = document.querySelector(".form__reset-button");
 const inputsGroupElement = document.querySelector(".inputs-group");
 
-inputsGroupElement.addEventListener("change", inputsChangeHandler);
+const inputsChangeHandler = function (evt) {
+    if (evt.target.nodeName === "INPUT" && isFilledParameters()) {
+        buttonCalculateElement.disabled = false;
+    }
+}
+
+const inputForResetChangeHandler = function (evt) {
+    if (evt.target.nodeName === "INPUT" && isExistParameter()) {
+        resetButtonElement.disabled = false;
+    }
+}
+
+inputsGroupElement.addEventListener("input", inputsChangeHandler);
 buttonCalculateElement.addEventListener("click", buttonCalculateClickHandler);
-inputsGroupElement.addEventListener("change", inputForResetChangeHandler);
+inputsGroupElement.addEventListener("input", inputForResetChangeHandler);
 resetButtonElement.addEventListener("click", resetButtonClickHandler);
